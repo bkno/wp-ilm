@@ -391,8 +391,7 @@ function ilm_home_event_feed( $atts ) {
     if ($posts->have_posts()):
         echo '<div class="items items-events clearfix">';
         while ($posts->have_posts()): $posts->the_post();
-            $index++;
-            $class = 'item item-event item-event-compact item-'.$index;
+            $class = 'item item-event item-event-compact';
             echo '<div class="'.$class.'">';
             echo '<h3><a href="'.get_the_permalink().'">'.get_the_title().'</a></h3>';
             echo '<p>';
