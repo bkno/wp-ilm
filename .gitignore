@@ -10,3 +10,5 @@ jetpack-temp
 cgi-bin
 .well-known
 .ftpquota
+wp-config-ddev.php
+.ddev/.gitignore
