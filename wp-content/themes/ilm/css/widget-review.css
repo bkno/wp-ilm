@@ -1,0 +1,2 @@
+/* Hide the tabs on review widget */
+#widget-tabstrip-WidgetMembershipHeaderExternalForm { display: none !important; }

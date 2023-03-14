@@ -1,0 +1,16 @@
+[28-Oct-2021 05:31:52 Europe/London] PHP Fatal error:  Uncaught Error: Class 'WP_Filesystem_Base' not found in /home/legacyma/public_html/wp-admin/includes/class-wp-filesystem-ftpsockets.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-admin/includes/class-wp-filesystem-ftpsockets.php on line 16
+[28-Oct-2021 05:31:54 Europe/London] PHP Fatal error:  Uncaught Error: Class 'WP_Filesystem_Base' not found in /home/legacyma/public_html/wp-admin/includes/class-wp-filesystem-ftpsockets.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-admin/includes/class-wp-filesystem-ftpsockets.php on line 16
+[28-Oct-2021 07:13:44 Europe/London] PHP Fatal error:  Uncaught Error: Class 'WP_Privacy_Data_Export_Requests_List_Table' not found in /home/legacyma/public_html/wp-admin/includes/deprecated.php:1530
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-admin/includes/deprecated.php on line 1530
+[28-Oct-2021 09:29:20 Europe/London] PHP Fatal error:  Uncaught Error: Class 'WP_List_Table' not found in /home/legacyma/public_html/wp-admin/includes/class-wp-comments-list-table.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-admin/includes/class-wp-comments-list-table.php on line 18

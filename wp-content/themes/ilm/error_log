@@ -1,0 +1,8 @@
+[05-Mar-2023 11:54:41 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/ilm/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/ilm/404.php on line 1
+[13-Mar-2023 05:00:49 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/ilm/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/ilm/404.php on line 1

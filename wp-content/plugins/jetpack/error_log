@@ -1,0 +1,4 @@
+[13-Mar-2023 05:00:46 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function plugin_dir_path() in /home/legacyma/public_html/wp-content/plugins/jetpack/jetpack.php:46
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/plugins/jetpack/jetpack.php on line 46

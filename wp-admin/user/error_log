@@ -1,0 +1,4 @@
+[02-Dec-2022 00:38:10 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home/legacyma/public_html/wp-admin/user/menu.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-admin/user/menu.php on line 10

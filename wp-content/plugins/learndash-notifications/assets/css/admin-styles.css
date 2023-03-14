@@ -1,0 +1,28 @@
+.shortcodes-instruction {
+	display: none;
+	margin: 15px 0 15px 0;
+}
+
+.shortcodes-instruction .header-text {
+    margin-bottom: 10px;
+}
+
+.shortcodes-instruction .shortcode {
+    font-weight: bold;   
+}
+
+.shortcodes-instruction .additional-help-text {
+	margin-top: 20px;
+}
+
+/* Select2 */
+
+.select2-container--learndash.select2-container--open {
+	z-index: 999999;
+}
+
+/* Posts Filter Select2 */
+#posts-filter .select2-container {
+	max-width: 12.5rem;
+	width: auto !important;
+}

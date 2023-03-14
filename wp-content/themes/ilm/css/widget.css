@@ -1,0 +1,194 @@
+/*
+    Colours:
+
+    E03C31 Red
+    4A3041 Purple
+    E6B559 Gold
+    F8F7F2 Light Grey
+    93B5C6 Blue 1 (light)
+    708C9D Blue 2 (dark)
+*/
+
+* { font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif; }
+
+body { margin: 0; padding: 0; }
+.view { padding: 0; }
+#widget-wrapper { /*background: #F8F7F2;*/ margin: 10px 0; /*padding: 30px;*/ }
+
+.field-cell { margin-bottom: 15px !important; height: 32px; }
+label { font-size: 14px !important; }
+input[type=text], input[type=password], input[type=email], textarea { font-size: 14px !important; padding: 4px 10px 3px !important; border: 1px solid #000 !important; outline: none !important; }
+.k-dropdown-wrap .k-input { text-indent: 0; text-align: left !important; }
+.k-autocomplete input.k-textbox { height: 32px; text-indent: 0; }
+.k-autocomplete.k-input, .k-dropdown-wrap { border: none !important; }
+.button-standardlov, .k-state-default>.k-select { height: 32px; border: 0 !important; background: #708C9D; outline: none !important; }
+textarea.k-textbox { min-width: 70px !important; }
+
+.k-input[readonly], .k-textbox[readonly], .k-input[readonly]:hover, .k-textbox[readonly]:hover, .readonly.k-input { background-color: #f4f4f4 !important; }
+
+/* Submit buttons */
+.button, .button:hover { color: #000; font-size: 14px; background: #ffffff; border-width: 2px; border-color: #e03c31; border-radius: 50px; font-weight: normal; font-style: normal; text-transform: uppercase; text-decoration: none; padding: 5px 50px 4px; /*display: inline-block;*/ text-shadow: none; outline: 0; }
+.button:hover { border-color: #000; }
+#widget-button-panel .button, #widget-button-panel .button:hover { padding: 11px 50px 8px; }
+
+#WidgetMyDetailsForm--FutureCorrespondence-cluster { padding-top: 15px; }
+
+#WidgetMyDetailsForm-field-panel-fieldset h5,
+#WidgetMyDetailsForm--FutureCorrespondence-cluster h5,
+#WidgetMyDetailsForm-field-control-container-MAILTHIRDPARTY,
+#WidgetMyDetailsForm-field-control-container-PHONETHIRDPARTY,
+#WidgetMyDetailsForm-field-control-container-EMAILTHIRDPARTY,
+#WidgetMyDetailsForm-field-control-container-DMEMAILOPTIN,
+#WidgetMyDetailsForm-field-control-container-DMMAILOPTIN { display: none !important; }
+
+/*! General */
+
+#tab-strip-container { width: 100%; height: 37px; overflow-y: hidden; }
+.tab-strip li:first-child { margin-left: 0; }
+.tab-strip li { padding-left: 12px; padding-right: 12px; }
+.tab-strip li a:before { border-left: none; } /* fix step arrow showing 3 sides instead of 2 */
+.k-state-hover > .k-select, .k-state-focused > .k-select, .k-state-selected, .k-state-selected:link, .k-state-selected:visited, .k-list>.k-state-selected, .k-list>.k-state-highlight, .k-panel>.k-state-selected, .k-button:active, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal, .k-draghandle.k-state-selected:hover, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-marquee-color { border-color: #E03C31 !important; background-color: #E03C31 !important; }
+
+.field-panel-cluster-text { color: #000; margin-left: 156px; margin-bottom: 15px; margin-top: 10px; } /* Fieldset heading */
+
+a.tab-header-text.disabled, a.tab-header-text.disabled:hover { opacity: 0.3; cursor: default !important; } /* Tab header links */
+
+.form-cluster-label { padding-top: 7px !important; }
+
+/*! Event - Booking */
+#WidgetEventBookingForm-field-control-LoggedInDetails { visibility: hidden; }
+#WidgetEventBookingForm-field-control-LoggedInDetails:before { visibility: visible; content: 'Please check that your details we have on file are correct and all necessary fields are complete. To add or amend your details please go to the \'Personal details\' section of My Account.'; }
+#WidgetEventBookingForm--WidgetEventAttendeeBookingSublist-cluster label[id$=SINGLECOST]:after { content: ' £'; }
+
+/*! Register - Membership (External Widget - not used) 
+
+#WidgetMembershipHeaderExternalForm--BandDetails-cluster { margin-top: 15px !important; }
+
+#WidgetMembershipHeaderExternalForm-field-label-BANDTOTALCOST:after,
+#WidgetMembershipHeaderExternalForm-field-label-TotalFees { content: ' £'; }
+
+#WidgetMembershipHeaderExternalForm--SchemeDetails-cluster h5,
+#WidgetMembershipHeaderExternalForm--BandDetails-cluster h5,
+#WidgetMembershipHeaderExternalForm-field-control-container-WEBDESCRIPTION,
+#WidgetMembershipHeaderExternalForm-field-control-container-BANDNAME,
+#WidgetMembershipHeaderExternalForm-field-control-container-BANDDESCRIPTION,
+#WidgetMembershipHeaderExternalForm-field-control-container-FixedFeesTotal { display: none !important; }*/
+
+/*! Register - Membership */
+
+#WidgetMembershipHeaderForm--SchemeDetails-cluster h5,
+#WidgetMembershipHeaderForm--BandDetails-cluster h5,
+#WidgetMembershipHeaderForm-field-control-container-WEBDESCRIPTION,
+#WidgetMembershipHeaderForm-field-control-container-BANDNAME,
+#WidgetMembershipHeaderForm-field-control-container-BANDDESCRIPTION { display: none !important; }
+
+  /* This is the bit of copy about changing personal details */
+#WidgetMembershipHeaderForm-field-control-LoggedInDetails { visibility: hidden; }
+#WidgetMembershipHeaderForm-field-control-LoggedInDetails:before { visibility: visible; content: 'Please check that your details we have on file are correct and all necessary fields are complete. To add or amend your details please go to the \'Personal details\' section of My Account.'; }
+
+#WidgetMembershipHeaderForm-field-label-BANDTOTALCOST { visibility: hidden; }
+#WidgetMembershipHeaderForm-field-label-BANDTOTALCOST:after { visibility: visible; content: '£'; }
+
+    /* Review step */
+    #WidgetMembershipHeaderForm-field-control-container-REVIEWWEBDESCRIPTION,
+    #WidgetMembershipHeaderForm-field-control-container-REVIEWBANDNAME,
+    #WidgetMembershipHeaderForm-field-control-container-REVIEWBANDDESCRIPTION,
+    #WidgetMembershipHeaderForm-field-control-container-FixedFeesTotal { display: none !important; }
+    #WidgetMembershipHeaderForm-field-label-TotalFees:after,
+    #WidgetMembershipHeaderExternalForm-field-label-WidgetMembershipHeaderSummary-TOTALFEES:after { content: ' £'; }
+    #WidgetMembershipHeaderExternalForm-field-control-container-WidgetDDInstructionMemberSummary-HTML { display: none !important; } /* hide direct debit details */
+
+
+/*! Register - User */
+
+label#WidgetRegisterForm-field-label-DAYTELEPHONE { visibility: hidden; }
+label#WidgetRegisterForm-field-label-DAYTELEPHONE:after { visibility: visible; content: 'Phone'; }
+#WidgetRegisterForm-field-control-container-EVENINGTELEPHONE,
+#WidgetRegisterForm-field-control-container-MOBILENUMBER { display: none !important; }
+
+#WidgetRegisterForm-field-panel-fieldset h5,
+#WidgetRegisterForm-field-control-container-DONOTSMS,
+#WidgetRegisterForm-field-control-container-MAILTHIRDPARTY,
+#WidgetRegisterForm-field-control-container-PHONETHIRDPARTY,
+#WidgetRegisterForm-field-control-container-EMAILTHIRDPARTY,
+#WidgetRegisterForm-field-control-container-DMEMAILOPTIN,
+#WidgetRegisterForm-field-control-container-DMMAILOPTIN,
+#WidgetRegisterForm-field-control-container-USERNAME { display: none !important; }
+/*#WidgetRegisterForm-field-label-PasswordUpperCase,
+#WidgetRegisterForm-field-label-PasswordNumbers,
+#WidgetRegisterForm-field-label-PasswordLowerCase,
+#WidgetRegisterForm-field-label-PasswordLength*/
+
+#WidgetRegisterForm-field-control-container-DONOTMAIL { margin-top: 15px !important; }
+
+#WidgetRegisterForm-field-control-container-DONOTMAIL,
+#WidgetRegisterForm-field-control-container-DONOTPHONE { margin-bottom: 6px !important; }
+
+#WidgetRegisterForm--UserAccount-cluster h5 { display: block; margin-left: 155px !important; color: #666; font-size: 18px !important; }
+
+#WidgetRegisterForm-field-control-container-UserAccountDetails,
+#WidgetRegisterForm-field-control-container-PasswordLength,
+#WidgetRegisterForm-field-control-container-PasswordLowerCase,
+#WidgetRegisterForm-field-control-container-PasswordUpperCase,
+#WidgetRegisterForm-field-control-container-PasswordNumbers { margin-bottom: 5px !important; }
+
+#WidgetRegisterForm-field-control-POSTCODE-wrap > .form-cluster-field { width: 120px !important; }
+
+/*! Register - User Review/Confirmation */
+#WidgetMyDetailsForm-field-control-container-DONOTSMS { display: none !important; }
+
+/* My Event Bookings */
+#sublist-WidgetEventBookingHistorySublist-sublist-grid-wrapper .sublist-header-caption-table { display: none; }
+
+/* My Memberships */
+#sublist-WidgetMembershipHeaderSublist-sublist-grid-wrapper .sublist-header-caption-table { display: none; }
+
+/* Personal details */
+#WidgetMyDetailsForm-field-control-TITLE-wrap>span { width: 150px !important; }
+#WidgetMyDetailsForm-field-control-POSTCODE-wrap>span { width: 120px !important; }
+label#WidgetMyDetailsForm-field-label-DAYTELEPHONE { visibility: hidden; }
+label#WidgetMyDetailsForm-field-label-DAYTELEPHONE:after { visibility: visible; content: 'Phone'; }
+#WidgetMyDetailsForm-field-control-container-EVENINGTELEPHONE,
+#WidgetMyDetailsForm-field-control-container-MOBILENUMBER { display: none !important; }
+
+/* Mobile styles */
+@media (max-width: 497px) {
+    /* Steps */
+    .tab-header { display: none !important; }
+    .tab-header.tab-current { display: block !important; }
+    .tab-header-text.tab-selected { color: #000 !important; font-size: 18px !important; font-weight: bold !important; text-align: center !important; background-color: #fff !important; display: block !important; padding-left: 0 !important; padding-right: 0 !important; }
+    .tab-strip li { padding: 0 !important; }
+    .tab-strip li a.disabled { opacity: 1.0 !important; }
+    .tab-strip li a:before { display: none !important; }
+    /* Field wrappers */
+    .field-cell { height: auto !important; margin-bottom: 10px !important; }
+    .form-cluster-field-wrap { display: block; }
+    .form-cluster-field-wrap > span.form-cluster-field { width: 100% !important; }
+    .field-panel-cluster { float: none !important; }
+    /* Headings */
+    .field-panel-cluster-text { margin-left: 0 !important; text-align: center !important; font-size: 15px !important; }
+    /* Label */
+    .form-cluster-label { width: 100%; text-align: center; margin: 0 0 5px; }
+    /* Field - dropdown & lookup */
+    .form-cluster-field { margin-left: auto !important; margin-right: auto !important; display: block !important; }
+    /* Field - text input */
+    input[type=text], input[type=password] { font-weight: normal !important; width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
+    /* Field - textarea */
+    textarea { width: 100% !important; }
+    /* Field - checkbox */
+    .check-box { margin-left: 0; display: inline-block !important; }
+    /* Field - postcode lookup results */
+    .webaddress-lookup-results { margin-left: 0 !important; }
+    /* Field - inline */
+    .field-cell-inline { display: block !important; }
+    /* Submit Buttons */
+    #widget-button-panel { right: auto !important; text-align: center; margin: 0; padding-top: 20px; }
+    #widget-button-panel button { margin-left: 0 !important; margin-bottom: 25px !important; }
+    /* Other */
+    #WidgetMembershipHeaderForm-field-control-container-ApplyPromoCode { display: none !important; }
+    #WidgetMembershipHeaderForm-field-control-LoggedInDetails { display: none !important; }
+    #WidgetMembershipHeaderForm-field-label-BANDTOTALCOST:after { display: block !important; }
+    #WidgetMembershipHeaderForm-field-control-InvoiceGuideLoggedOut { display: none !important; }
+    #WidgetMyDetailsForm-field-control-POSTCODE-wrap>span { width: 100% !important; }
+    #WidgetEventBookingForm--AttendeeDetails-cluster { display: none !important; }
+}

@@ -1,0 +1,8 @@
+/*#et_pb_toggle_builder { padding: 0 20px 0 65px !important; display: none; }
+#et_pb_toggle_builder:before { display: none !important; }*/
+
+/* Hide Divi projects menu item */
+#menu-posts-project { display: none !important; }
+
+/* Partner logos */
+.has-post-thumbnail.type-partner img { max-width: 190px !important; max-height: 100px !important; }

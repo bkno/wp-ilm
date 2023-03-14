@@ -1,0 +1,24 @@
+[05-Mar-2023 11:54:41 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/Divi/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/index.php on line 1
+[05-Mar-2023 11:54:53 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function et_theme_builder_overrides_layout() in /home/legacyma/public_html/wp-content/themes/Divi/footer.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/footer.php on line 2
+[05-Mar-2023 11:54:53 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/Divi/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/404.php on line 1
+[13-Mar-2023 05:00:50 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/Divi/404.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/404.php on line 1
+[13-Mar-2023 05:00:50 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function et_theme_builder_overrides_layout() in /home/legacyma/public_html/wp-content/themes/Divi/footer.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/footer.php on line 2
+[13-Mar-2023 05:00:50 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/legacyma/public_html/wp-content/themes/Divi/index.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/legacyma/public_html/wp-content/themes/Divi/index.php on line 1

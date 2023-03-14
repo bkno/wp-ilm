@@ -1,0 +1,7 @@
+wp-content/wpvivid*
+wp-content/ai1wm-*
+*.log
+wp-content/et-cache
+wp-config.php
+wp-content/uploads
+*.mp4
