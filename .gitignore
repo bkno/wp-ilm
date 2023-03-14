@@ -8,3 +8,5 @@ wp-content/uploads
 error_log
 jetpack-temp
 cgi-bin
+.well-known
+.ftpquota
