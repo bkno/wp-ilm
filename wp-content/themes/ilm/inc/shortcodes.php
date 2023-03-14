@@ -376,7 +376,6 @@ function ilm_home_event_feed( $atts ) {
         'post_type' => 'event',
         'orderby' => 'date',
         'posts_per_page' => 4,
-        'paged' => $paged,
         'meta_query' => [
             'date_clause' => [
                 'key' => 'event_date', 
