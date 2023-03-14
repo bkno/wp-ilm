@@ -5,3 +5,6 @@ wp-content/et-cache
 wp-config.php
 wp-content/uploads
 *.mp4
+error_log
+jetpack-temp
+cgi-bin
