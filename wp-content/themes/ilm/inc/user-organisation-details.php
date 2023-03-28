@@ -43,7 +43,7 @@ function ilm_user_organisation_details( $atts ) {
     return ob_get_clean();
 }
  
- add_filter('acf/load_field/name=org_first_name', 'ilm_acf_set_field_value_firstname');   
+add_filter('acf/load_field/name=org_first_name', 'ilm_acf_set_field_value_firstname');   
 function ilm_acf_set_field_value_firstname( $field ) {
     $field['default_value'] = do_shortcode('[user field=firstname]');
     return $field;
