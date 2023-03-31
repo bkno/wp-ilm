@@ -19,7 +19,7 @@ function ilm_user_organisation_details( $atts ) {
     	'field_groups' => [11847],
 		'post_title' => false,
 		'updated_message' => 'Changes saved, thank you.',
-		'html_updated_message' => '<div id="org-details-message"><p>%s &nbsp;Continue to <a href="/account/">your account page ›</a></p></div>',
+		'html_updated_message' => '<div class="alert"><p>%s &nbsp;Continue to <a href="/account/">your account page ›</a></p></div>',
 		'submit_value'	=> 'Submit'
 	];
 

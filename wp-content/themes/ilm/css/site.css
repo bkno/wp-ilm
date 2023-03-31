@@ -581,9 +581,11 @@ small { font-size: 13px; }
 
 /* Organisation details form */
 .org-first-name, .org-last-name, .org-email { display: none; }
-#org-details-message { background: #d8f3d8; color: #004600; margin: 0 0 15px; padding: 8px 14px; border-radius: 5px; max-width: 500px; }
-#org-details-message a { color: #004600 !important; text-decoration: underline; font-weight: bold; }
-#org-details-message a:hover { color: #000 !important; }
+
+/* Alerts (used for ACF forms: org details and user preferences) */
+.alert { background: #d8f3d8; color: #004600; margin: 0 0 15px; padding: 8px 14px; border-radius: 5px; max-width: 500px; }
+.alert a { color: #004600 !important; text-decoration: underline; font-weight: bold; }
+.alert a:hover { color: #000 !important; }
 
 /*! Membership Widget Logic */
 .payment-method { text-align: center; margin: 25px auto 25px !important; }
