@@ -1,0 +1,52 @@
+{
+    "key": "group_59f98c852fe0f",
+    "title": "Feature image options",
+    "fields": [
+        {
+            "key": "field_59f98c8f67c5a",
+            "label": "Hide on single view",
+            "name": "feature_hide_single",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Feature image will always be shown on a list view. But you may activate this to prevent it appearing on the single view.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 100,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1680251514
+}
