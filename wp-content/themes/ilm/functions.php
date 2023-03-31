@@ -1,6 +1,6 @@
 <?php
 
-$version = '2022-10-04-002';
+$version = '2023-03-31-001';
 
 /* Account area sidebar */
 register_sidebar([
@@ -408,11 +408,19 @@ function ilm_auto_complete_paid_order( $order_id ) {
     }
 }
 
+/* ACF Front-end Forms */
+add_action( 'init', function() {
+	if ( is_admin() === false ) {
+		acf_form_head();
+	}
+} );
+
 /* Includes */
 include('inc/post-types.php');
 include('inc/menus.php');
 include('inc/shortcodes.php');
 include('inc/user-organisation-details.php');
+include('inc/user-preferences.php');
 include('inc/bbpress.php');
 include('inc/jobs.php');
 include('inc/recaptcha.php');

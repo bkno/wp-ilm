@@ -120,3 +120,35 @@ register_taxonomy(
         'rewrite' => [ 'slug' => 'events/types', 'hierarchical' => true ]
     ]
 );
+
+register_post_type(
+    'preferences', [
+        'labels' => [
+            'name' => 'User opt-in forms',
+            'singular_name' => 'User opt-in form',
+            'add_new' => 'Add New',
+            'add_new_item' => 'Add New User opt-in form',
+            'edit_item' => 'Edit User opt-in form',
+            'new_item' => 'New User opt-in form',
+            'view_item' => 'View User opt-in form',
+            'view_items' => 'View User opt-in forms',
+            'search_items' => 'Search User opt-in forms',
+            'not_found' => 'No User opt-in forms found',
+            'not_found_in_trash' => 'No User opt-in forms found in Trash',
+            'all_items' => 'All User opt-in forms',
+            'archives' => 'User opt-in forms Archives',
+            'featured_image' => 'Featured Image',
+            'set_featured_image' => 'Set featured image',
+            'remove_featured_image' => 'Remove featured image',
+            'use_featured_image' => 'Use as featured image'
+        ],
+        'public' => false,
+        'has_archive' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 9,
+        'menu_icon' => 'data:image/svg+xml;base64,' . base64_encode('<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM224,48V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM208,208V48H48V208H208Z"></path></svg>'),
+        'rewrite' => ['slug' => 'preferences'],
+        'supports' => [ 'title', 'author' ]
+    ]
+);
