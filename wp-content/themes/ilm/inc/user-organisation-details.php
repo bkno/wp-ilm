@@ -19,7 +19,7 @@ function ilm_user_organisation_details( $atts ) {
     	'field_groups' => [11847],
 		'post_title' => false,
 		'updated_message' => 'Changes saved, thank you.',
-		'html_updated_message' => '<div id="org-details-message"><p>%s &nbsp;Continue to <a href="/account/">your account page ›</a></p></div>',
+		'html_updated_message' => '<div class="alert">%s &nbsp;Continue to <a href="/account/">your account page ›</a></div>',
 		'submit_value'	=> 'Submit'
 	];
 
@@ -43,7 +43,7 @@ function ilm_user_organisation_details( $atts ) {
     return ob_get_clean();
 }
  
- add_filter('acf/load_field/name=org_first_name', 'ilm_acf_set_field_value_firstname');   
+add_filter('acf/load_field/name=org_first_name', 'ilm_acf_set_field_value_firstname');   
 function ilm_acf_set_field_value_firstname( $field ) {
     $field['default_value'] = do_shortcode('[user field=firstname]');
     return $field;

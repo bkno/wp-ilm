@@ -38,7 +38,6 @@
 .ilm .entry-content .panel-label .panel-label-content.panel-label-bg-gold { background-color: #E6B559; }
 .ilm .entry-content .panel-label .panel-label-content.panel-label-bg-blue { background-color: #93B5C6; }
 .ilm .entry-content .panel-label .panel-label-content.panel-label-bg-purple { background-color: #4A3041; }
-.ilm .entry-content .panel-text { }
 .ilm .entry-content .panel a.et_pb_button { font-weight: bold; }
 @media (max-width: 768px) {
 	.ilm .entry-content .panel { padding: 30px; }
@@ -436,7 +435,7 @@ textarea, textarea.wp-editor-area { font-size: 14px; padding: 10px; border: 1px 
 .directory-action .et_pb_button { float: right !important; }
 .directory-action .et_pb_button, .directory-action .et_pb_button:hover { padding: 4px 20px !important; border-width: 1px !important; margin-left: 10px !important; height: auto; }
 .directory-action .et_pb_button:last-child { margin-left: 0 !important; }
-.directory-count { text-size: 90%; color: #708C9D; }
+.directory-count { color: #708C9D; }
 .directory-item { margin: 15px 0; }
 .directory-action { padding-top: 30px; }
 @media (max-width: 1180px) {
@@ -460,7 +459,7 @@ textarea, textarea.wp-editor-area { font-size: 14px; padding: 10px; border: 1px 
 #bbp_search_submit { padding-left: 25px !important; padding-right: 25px !important; margin-bottom: 10px; }
 .bbp-author-name { color: #000; }
 .bbp-topic-title .bbp-topic-permalink { /*color: #000; font-weight: bold;*/ font-size: 13px; }
-#bbpress-forums p.bbp-topic-meta img.avatar, #bbpress-forums ul.bbp-reply-revision-log img.avatar, #bbpress-forums ul.bbp-topic-revision-log img.avatar, #bbpress-forums div.bbp-template-notice img.avatar, #bbpress-forums .widget_display_topics img.avatar, #bbpress-forums .widget_display_replies img.avatar { margin-bottom: -3px; border:  }
+#bbpress-forums p.bbp-topic-meta img.avatar, #bbpress-forums ul.bbp-reply-revision-log img.avatar, #bbpress-forums ul.bbp-topic-revision-log img.avatar, #bbpress-forums div.bbp-template-notice img.avatar, #bbpress-forums .widget_display_topics img.avatar, #bbpress-forums .widget_display_replies img.avatar { margin-bottom: -3px; }
 .bbp-reply-content { font-size: 13px; }
 span.bbp-admin-links a { color: #666; }
 .bbp-reply-author .bbp-author-name { font-size: 13px; line-height: 18px; }
@@ -581,9 +580,11 @@ small { font-size: 13px; }
 
 /* Organisation details form */
 .org-first-name, .org-last-name, .org-email { display: none; }
-#org-details-message { background: #d8f3d8; color: #004600; margin: 0 0 15px; padding: 8px 14px; border-radius: 5px; max-width: 500px; }
-#org-details-message a { color: #004600 !important; text-decoration: underline; font-weight: bold; }
-#org-details-message a:hover { color: #000 !important; }
+
+/* Alerts (used for ACF forms: org details and user preferences) */
+.alert { background: #d8f3d8; color: #004600; margin: 0 0 15px; padding: 8px 14px; border-radius: 5px; max-width: 500px; }
+.alert a { color: #004600 !important; text-decoration: underline; font-weight: bold; }
+.alert a:hover { color: #000 !important; }
 
 /*! Membership Widget Logic */
 .payment-method { text-align: center; margin: 25px auto 25px !important; }
