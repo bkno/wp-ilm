@@ -99,3 +99,59 @@ function wc_account_funds_current_user_can( $action, ...$args ) {
 	 */
 	return apply_filters( "wc_account_funds_current_user_can_{$action}", current_user_can( 'manage_woocommerce' ), ...$args );
 }
+
+/**
+ * Gets the name to refer to the account funds.
+ *
+ * @since 2.8.0
+ *
+ * @return string
+ */
+function wc_get_account_funds_name() {
+	$name = get_option( 'account_funds_name' );
+
+	if ( ! $name ) {
+		$name = __( 'Account Funds', 'woocommerce-account-funds' );
+	}
+
+	return $name;
+}
+
+/**
+ * Gets the discount data for using funds.
+ *
+ * @since 2.9.0
+ *
+ * @return array
+ */
+function wc_get_account_funds_discount_data() {
+	$discount = array(
+		'type'   => get_option( 'account_funds_discount_type', 'fixed' ),
+		'amount' => get_option( 'account_funds_discount_amount', 0 ),
+	);
+
+	/**
+	 * Filters the discount data for using funds.
+	 *
+	 * @since 2.9.0
+	 *
+	 * @param array $discount An array with the discount data.
+	 */
+	return apply_filters( 'wc_account_funds_discount_data', $discount );
+}
+
+/**
+ * Gets the placeholder text.
+ *
+ * @since 2.8.0
+ *
+ * @param array $placeholders Placeholder list.
+ * @return string
+ */
+function wc_account_funds_get_placeholder_text( $placeholders ) {
+	return sprintf(
+	/* translators: %s: list of placeholders */
+		__( 'Available placeholders: %s', 'woocommerce' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+		'<code>' . esc_html( implode( '</code>, <code>', $placeholders ) ) . '</code>'
+	);
+}

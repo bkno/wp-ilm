@@ -5,13 +5,13 @@
  * Description: LearnDash Licensing & Management allows you to connect your license and handles all updates related to the LearnDash family of products.
  * Author:      LearnDash
  * Author URI: https://learndash.com
- * Version:     1.1.4
+ * Version:     1.1.6
  * Text Domain: learndash-hub
  * Domain Path: includes/languages/
  * Network:     true
  */
 
-const HUB_VERSION    = '1.1.4';
+const HUB_VERSION    = '1.1.6';
 const HUB_DB_VERSION = '1.0';
 const HUB_SLUG       = 'learndash-hub/learndash-hub.php';
 define( 'HUB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

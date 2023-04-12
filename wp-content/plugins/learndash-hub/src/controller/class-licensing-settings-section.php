@@ -14,8 +14,8 @@ if ( ( class_exists( 'LearnDash_Settings_Section' ) ) ) {
 	 * Add the visibility functionality.
 	 */
 	class Licensing_Settings_Section extends LearnDash_Settings_Section {
-		use License;
 		use Permission;
+    use License;
 
 		/**
 		 * The absolute path to view folder.

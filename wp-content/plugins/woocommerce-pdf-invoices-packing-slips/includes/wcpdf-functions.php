@@ -290,3 +290,4 @@ function wcpdf_catch_db_object_errors( $wpdb ) {
 
 	return $errors;
 }
+

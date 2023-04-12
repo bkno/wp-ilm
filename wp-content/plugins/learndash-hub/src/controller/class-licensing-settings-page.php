@@ -15,8 +15,8 @@ if ( ( class_exists( 'LearnDash_Settings_Page' ) ) ) {
 	 * @since 2.4.0
 	 */
 	class Licensing_Settings extends LearnDash_Settings_Page {
-		use License;
 		use Permission;
+    use License;
 
 		/**
 		 * The absolute path to view folder.

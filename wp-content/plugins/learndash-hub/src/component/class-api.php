@@ -27,10 +27,19 @@ class API extends Base {
 	 *
 	 * @param string $email       The email that registered with LearnDash.
 	 * @param string $license_key The license key provided when registered.
+	 * @param bool   $force_check Force check the license status.
 	 *
 	 * @return \WP_Error|bool
 	 */
-	public function verify_license( string $email, string $license_key ) {
+	public function verify_license( string $email, string $license_key, bool $force_check = false ) {
+		if ( ! $force_check ) {
+			$license_status = $this->get_license_status();
+
+			if ( '' !== $license_status ) {
+				return ! is_wp_error( $license_status ) ? true : $license_status;
+			}
+		}
+
 		$response = $this->do_api_request(
 			'/site/auth',
 			'POST',
@@ -41,14 +50,25 @@ class API extends Base {
 			)
 		);
 
-		if ( is_wp_error( $response ) ) {
-			return $response;
-		}
+		/**
+		 * Fires after the license verification.
+		 *
+		 * @since 1.1.5
+		 *
+		 * @param \WP_Error|bool $license_response    `WP_Error` on failure, `true` on success.
+		 * @param string         $license_email        License email.
+		 * @param string         $license_key          License key.
+		 */
+		do_action(
+			'learndash_licensing_management_license_verified',
+			! is_wp_error( $response ) ? true : $response,
+			$email,
+			$license_key
+		);
 
-		update_site_option( $this->get_license_key_option_name(), $license_key );
-		update_site_option( $this->get_hub_email_option_name(), $email );
+		$this->update_license_status( $response, $email, $license_key );
 
-		return true;
+		return ! is_wp_error( $response ) ? true : $response;
 	}
 
 	/**
@@ -60,8 +80,8 @@ class API extends Base {
 		}
 		$cached = get_site_option( 'learndash-hub-projects-api' );
 		if ( is_array( $cached )
-		     && isset( $cached['last_check'] )
-		     && strtotime( '+1 hour', $cached['last_check'] ) < time() ) {
+			 && isset( $cached['last_check'] )
+			 && strtotime( '+1 hour', $cached['last_check'] ) < time() ) {
 			$cached = array();
 		}
 

@@ -13,7 +13,7 @@ use LearnDash\Hub\Traits\Permission;
  */
 class Settings_Controller extends Controller {
 	use Permission;
-	use License;
+  use License;
 
 	/**
 	 * Constructor.
@@ -53,6 +53,13 @@ class Settings_Controller extends Controller {
 		delete_site_option( 'learndash_hub_fetch_projects' );
 		delete_site_option( 'learndash_hub_update_plugins_cache' );
 		$this->cleanup_access_list();
+
+    /**
+		 * Fires after the license logout.
+		 *
+		 * @since 1.1.5
+		 */
+		do_action( 'learndash_licensing_management_license_logout' );
 
 		wp_send_json_success();
 	}

@@ -27,7 +27,7 @@ class Invoice extends Order_Document_Methods {
 		$this->type		= 'invoice';
 		$this->title	= __( 'Invoice', 'woocommerce-pdf-invoices-packing-slips' );
 		$this->icon		= WPO_WCPDF()->plugin_url() . "/assets/images/invoice.svg";
-
+		
 		// Call parent constructor
 		parent::__construct( $order );
 	}
@@ -58,10 +58,13 @@ class Invoice extends Order_Document_Methods {
 
 		if ( isset( $this->settings['display_date'] ) && $this->settings['display_date'] == 'order_date' && !empty( $this->order ) ) {
 			$this->set_date( $this->order->get_date_created() );
+			$this->set_display_date( 'order_date' );	
 		} elseif( empty( $this->get_date() ) ) {
 			$this->set_date( current_time( 'timestamp', true ) );
+			$this->set_display_date( 'invoice_date' );	
 		}
 
+		
 		$this->init_number();
 
 		do_action( 'wpo_wcpdf_init_document', $this );
@@ -409,6 +412,44 @@ class Invoice extends Order_Document_Methods {
 					'id'			=> 'disable_free',
 					/* translators: zero number */
 					'description'	=> sprintf(__( "Disable document when the order total is %s", 'woocommerce-pdf-invoices-packing-slips' ), function_exists('wc_price') ? wc_price( 0 ) : 0 ),
+				)
+			),
+			array(
+				'type'     => 'setting',
+				'id'       => 'mark_printed',
+				'title'    => __( 'Mark as printed', 'woocommerce-pdf-invoices-packing-slips' ),
+				'callback' => 'select',
+				'section'  => 'invoice',
+				'args'     => array(
+					'option_name' => $option_name,
+					'id'          => 'mark_printed',
+					'options'     => array_merge(
+						[
+							'manually' => __( 'Manually', 'woocommerce-pdf-invoices-packing-slips' ),
+						],
+						apply_filters( 'wpo_wcpdf_document_triggers', [
+							'single'           => __( 'On single order action', 'woocommerce-pdf-invoices-packing-slips' ),
+							'bulk'             => __( 'On bulk order action', 'woocommerce-pdf-invoices-packing-slips' ),
+							'my_account'       => __( 'On my account', 'woocommerce-pdf-invoices-packing-slips' ),
+							'email_attachment' => __( 'On email attachment', 'woocommerce-pdf-invoices-packing-slips' ),
+							'document_data'    => __( 'On order document data (number and/or date set manually)', 'woocommerce-pdf-invoices-packing-slips' ),
+						] )
+					),
+					'multiple'         => true,
+					'enhanced_select'  => true,
+					'description'      => __( 'Allows you to mark the document as printed, manually (in the order page) or automatically (based on the document creation context you have selected).', 'woocommerce-pdf-invoices-packing-slips' ),
+				)
+			),
+			array(
+				'type'     => 'setting',
+				'id'       => 'unmark_printed',
+				'title'    => __( 'Unmark as printed', 'woocommerce-pdf-invoices-packing-slips' ),
+				'callback' => 'checkbox',
+				'section'  => 'invoice',
+				'args'     => array(
+					'option_name' => $option_name,
+					'id'          => 'unmark_printed',
+					'description' => __( 'Adds a link in the order page to allow to remove the printed mark.', 'woocommerce-pdf-invoices-packing-slips' ),
 				)
 			),
 			array(

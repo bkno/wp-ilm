@@ -11,7 +11,7 @@ use LearnDash\Hub\Traits\Permission;
  */
 class Signin_Controller extends Controller {
 	use Permission;
-	use License;
+  use License;
 
 	/**
 	 * Constructor.
@@ -43,7 +43,8 @@ class Signin_Controller extends Controller {
 			wp_send_json_error( __( 'Please provide a valid email and license key.', 'learndash-hub' ) );
 		}
 
-		$ret = $this->get_api()->verify_license( $email, $key );
+		$ret = $this->get_api()->verify_license( $email, $key, true );
+
 		if ( is_wp_error( $ret ) ) {
 			wp_send_json_error( $ret->get_error_message() );
 		}
