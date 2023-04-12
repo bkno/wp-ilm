@@ -12,3 +12,4 @@ cgi-bin
 .ftpquota
 wp-config-ddev.php
 .ddev/.gitignore
+wp-content/themes/ilm/ilm.zip
