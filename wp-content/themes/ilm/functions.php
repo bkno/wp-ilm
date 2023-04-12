@@ -1,6 +1,6 @@
 <?php
 
-$version = '2023-03-31-001';
+$version = '2023-04-12-001';
 
 /* Account area sidebar */
 register_sidebar([
