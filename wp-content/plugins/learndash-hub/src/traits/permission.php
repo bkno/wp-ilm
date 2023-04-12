@@ -3,8 +3,6 @@
 namespace LearnDash\Hub\Traits;
 
 trait Permission {
-	use License;
-
 	/**
 	 * Checks if the current user have permission for execute an action.
 	 *

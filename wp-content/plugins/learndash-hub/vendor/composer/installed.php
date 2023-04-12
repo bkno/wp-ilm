@@ -3,7 +3,7 @@
         'name' => 'learndash/supports',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'e0250ebb2ccb33b8c7b8544248c5f0627cdaa79f',
+        'reference' => '2a22755dc8a6a2008eee7b130f481365527e57ff',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'learndash/supports' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e0250ebb2ccb33b8c7b8544248c5f0627cdaa79f',
+            'reference' => '2a22755dc8a6a2008eee7b130f481365527e57ff',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

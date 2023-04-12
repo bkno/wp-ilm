@@ -16,8 +16,6 @@ $wp_plugin_dir = trailingslashit( $wp_plugin_dir );
 
 $hub_plugin_dir = basename( __DIR__ );
 
-$rename_ret = false;
-
 if ( ( $installed_dir !== $wp_plugin_dir ) && ( is_writable( $wp_plugin_dir ) ) ) {
 	if ( ! file_exists( $installed_dir . $hub_plugin_dir ) ) {
 		return;
@@ -52,23 +50,5 @@ if ( ( $installed_dir !== $wp_plugin_dir ) && ( is_writable( $wp_plugin_dir ) ) 
 	}
 
 	// Move the plugin from the current directory to the plugins/learndash-hub/ directory.
-	$rename_ret = rename( $installed_dir . $hub_plugin_dir, $wp_plugin_dir . $hub_plugin_dir );
-	if ( true === $rename_ret ) {
-		$hub_slug = 'learndash-hub/learndash-hub.php';
-
-		// After the rename we need to add ourself to the WP 'active' plugins list.
-		if ( ( isset( $network_wide ) ) && ( true === $network_wide ) ) {
-			$current              = get_site_option( 'active_sitewide_plugins', array() );
-			$current[ $hub_slug ] = time();
-			update_site_option( 'active_sitewide_plugins', $current );
-		} else {
-			$current = get_option( 'active_plugins', array() );
-
-			if ( ! in_array( $hub_slug, $current, true ) ) {
-				$current[] = $hub_slug;
-				sort( $current );
-				update_option( 'active_plugins', $current );
-			}
-		}
-	}
+	rename( $installed_dir . $hub_plugin_dir, $wp_plugin_dir . $hub_plugin_dir );
 }

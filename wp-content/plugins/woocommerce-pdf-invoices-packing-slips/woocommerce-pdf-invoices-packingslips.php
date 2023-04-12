@@ -3,14 +3,14 @@
  * Plugin Name:          PDF Invoices & Packing Slips for WooCommerce
  * Plugin URI:           https://wpovernight.com/downloads/woocommerce-pdf-invoices-packing-slips-bundle/
  * Description:          Create, print & email PDF invoices & packing slips for WooCommerce orders.
- * Version:              3.4.0
+ * Version:              3.5.1
  * Author:               WP Overnight
  * Author URI:           https://www.wpovernight.com
  * License:              GPLv2 or later
  * License URI:          https://opensource.org/licenses/gpl-license.php
  * Text Domain:          woocommerce-pdf-invoices-packing-slips
  * WC requires at least: 3.0
- * WC tested up to:      7.4
+ * WC tested up to:      7.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! class_exists( 'WPO_WCPDF' ) ) :
 
 class WPO_WCPDF {
 
-	public $version = '3.4.0';
+	public $version = '3.5.1';
 	public $plugin_basename;
 	public $legacy_mode;
 	public $legacy_textdomain;
@@ -60,6 +60,7 @@ class WPO_WCPDF {
 		add_action( 'before_woocommerce_init', array( $this, 'woocommerce_hpos_compatible' ) );
 		add_action( 'admin_notices', array( $this, 'nginx_detected' ) );
 		add_action( 'admin_notices', array( $this, 'mailpoet_mta_detected' ) );
+		add_action( 'admin_notices', array( $this, 'rtl_detected' ) );
 
 		// legacy textdomain fallback
 		if ( $this->legacy_textdomain_enabled() === true ) {
@@ -85,12 +86,7 @@ class WPO_WCPDF {
 	 * Note: the first-loaded translation file overrides any following ones if the same translation is present
 	 */
 	public function translations() {
-		if ( function_exists( 'determine_locale' ) ) { // WP5.0+
-			$locale = determine_locale();
-		} else {
-			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
-		}
-		$locale = apply_filters( 'plugin_locale', $locale, 'woocommerce-pdf-invoices-packing-slips' );
+		$locale = $this->determine_locale();
 		$dir    = trailingslashit( WP_LANG_DIR );
 
 		$textdomains = array( 'woocommerce-pdf-invoices-packing-slips' );
@@ -180,6 +176,8 @@ class WPO_WCPDF {
 	public function includes() {
 		// Third party compatibility
 		include_once( $this->plugin_path() . '/includes/compatibility/class-wcpdf-compatibility-third-party-plugins.php' );
+		// WC OrderUtil compatibility
+		$this->order_util = include_once( $this->plugin_path() . '/includes/compatibility/class-wcpdf-order-util.php' );
 
 		// Plugin classes
 		include_once( $this->plugin_path() . '/includes/wcpdf-functions.php' );
@@ -271,7 +269,7 @@ class WPO_WCPDF {
 		$message = '<div class="error"><p>' . $error . '</p></div>';
 	
 		echo $message;
-}
+	}
 
 	/**
 	 * Check if woocommerce is activated
@@ -493,6 +491,43 @@ class WPO_WCPDF {
 			}
 		}
 	}
+	
+	/**
+	 * RTL detected notice
+	 *
+	 * @return void
+	 */
+	public function rtl_detected() {
+		if ( ! is_super_admin() ) {
+			return;
+		}
+		
+		if ( is_rtl() && ! get_option( 'wpo_wcpdf_hide_rtl_notice' ) ) {
+			ob_start();
+			?>
+			<div class="notice notice-warning">
+				<p><?php _e( 'PDF Invoices & Packing Slips for WooCommerce detected that your current site locale is right-to-left (RTL) which the current PDF engine does not support it. Please consider installing our mPDF extension that is compatible.', 'woocommerce-pdf-invoices-packing-slips' ); ?></p>
+				<p><a class="button" href="<?php echo esc_url( 'https://github.com/wpovernight/woocommerce-pdf-ips-mpdf/releases/latest' ); ?>" target="_blank"><?php _e( 'Download mPDF extension', 'woocommerce-pdf-invoices-packing-slips' ); ?></a></p>
+				<p><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'wpo_wcpdf_hide_rtl_notice', 'true' ), 'hide_rtl_notice_nonce' ) ); ?>"><?php _e( 'Hide this message', 'woocommerce-pdf-invoices-packing-slips' ); ?></a></p>
+			</div>
+			<?php
+			echo wp_kses_post( ob_get_clean() );
+		}
+		
+		// save option to hide mailpoet notice
+		if ( isset( $_REQUEST['wpo_wcpdf_hide_rtl_notice'] ) && isset( $_REQUEST['_wpnonce'] ) ) {
+			// validate nonce
+			if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'hide_rtl_notice_nonce' ) ) {
+				wcpdf_log_error( 'You do not have sufficient permissions to perform this action: wpo_wcpdf_hide_rtl_notice' );
+				wp_redirect( 'admin.php?page=wpo_wcpdf_options_page' );
+				exit;
+			} else {
+				update_option( 'wpo_wcpdf_hide_rtl_notice', true );
+				wp_redirect( 'admin.php?page=wpo_wcpdf_options_page' );
+				exit;
+			}
+		}
+	}
 
 	/**
 	 * Get the plugin url.
@@ -508,6 +543,19 @@ class WPO_WCPDF {
 	 */
 	public function plugin_path() {
 		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+	}
+
+	/**
+	 * Determine the site locale
+	 */
+	public function determine_locale() {
+		if ( function_exists( 'determine_locale' ) ) { // WP5.0+
+			$locale = determine_locale();
+		} else {
+			$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
+		}
+		
+		return apply_filters( 'plugin_locale', $locale, 'woocommerce-pdf-invoices-packing-slips' );
 	}
 
 } // class WPO_WCPDF

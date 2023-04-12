@@ -17,8 +17,8 @@ use LearnDash\Hub\Traits\Permission;
  * @package Hub
  */
 class Boot {
-	use License;
 	use Permission;
+  use License;
 
 	/**
 	 * Run all the triggers in init runtime.
@@ -59,5 +59,6 @@ class Boot {
 	public function deactivate() {
 		delete_site_option( 'learndash-hub-projects-api' );
 		delete_site_option( 'learndash_hub_update_plugins_cache' );
+		delete_site_option( $this->get_license_status_option_name() );
 	}
 }
